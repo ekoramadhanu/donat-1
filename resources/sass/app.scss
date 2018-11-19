@@ -1,0 +1,363 @@
+@charset "UTF-8";
+
+// Icon & Font
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+@import url("https://fonts.googleapis.com/css?family=Varela+Round");
+
+// Variables
+@import 'variables';
+
+// Materialize-css
+@import "~materialize-css/sass/materialize";
+
+html, body, .block {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-sans-serif;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    background-color: $body-bg;
+}
+
+.block {
+    display: -webkit-flex; /* Safari */
+    -webkit-align-items: center; /* Safari 7.0+ */
+    display: -moz-flex;
+    -moz-align-items: center;
+    display: flex;
+    align-items: center;
+}
+
+.umum {
+    background-color: $body-bg;
+}
+
+.umum-nav {
+    background-color: $blue-c;
+}
+
+.button-umum {
+    color: $blue-c;
+}
+
+.sd {
+    background-color: $red-c;
+}
+
+.sd-nav {
+    background-color: $red-dark-c;
+}
+
+.button-sd {
+    color: $red-dark-c;
+}
+
+.smp {
+    background-color: $blue-c;
+}
+
+.smp-nav {
+    background-color: $blue-dark-c;
+}
+
+.button-smp {
+    color: $blue-dark-c;
+}
+
+.informal {
+    background-color: $green-c;
+}
+
+.informal-nav {
+    background-color: $green-dark-c;
+}
+
+.button-informal {
+    color: $green-dark-c;
+}
+
+.custom-nav-shadows {
+    box-shadow: 0px 3px 6px $shadow-c !important;
+}
+
+@media only screen and (min-width: 992px) {
+    .margin-left-right {
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+}
+
+.title-custom {
+    font-weight: 900;
+    color: $blue-c;
+    text-align: center;
+    font-size: 3vw;
+}
+
+.subtitle-custom {
+    font-weight: 100;
+    color: $blue-c;
+    text-align: center;
+    font-size: 1.3vw;
+    margin-bottom: 2vh;
+}
+
+@media only screen and (max-width: 992px) {
+    .title-custom {
+        font-size: 5vw;
+    }
+    
+    .subtitle-custom {
+        font-size: 3vw;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    .title-custom {
+        font-size: 6.5vw;
+    }
+    
+    .subtitle-custom {
+        font-size: 4.5vw;
+    }
+}
+
+.img-brand-size-dekstop {
+    height: 50px;
+    margin: 1vh;
+}
+
+.img-brand-size-mobile {
+    height: 43px;
+    margin: 1vh;
+}
+
+.card-umum-body {
+    background-color: $blue-c !important;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.card-umum-body:hover {
+    background-color: $grey-c !important;
+    transition: background 0.6s;
+    -webkit-transition: background 0.6s;
+    -moz-transition: background 0.6s;
+}
+
+.card-umum-body:hover .padding-5 {
+    padding: 3.3vh;
+    transition: padding 0.6s;
+    -webkit-transition: padding 0.6s;
+    -moz-transition: padding 0.6s;
+}
+
+.card-umum-footer {
+    background-color: $blue-dark-c !important;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    width: 100%;
+}
+
+.card-category-body {
+    background-color: $body-bg !important;
+    border-radius: 20px;
+}
+
+.card-action {
+    text-align: end !important;
+}
+
+.card-action > a {
+    color: $body-bg !important;
+    text-transform: lowercase !important;
+    font-size: 1.25vw;
+}
+
+@media only screen and (max-width: 992px) {
+    .card-action > a {
+        font-size: 2vw;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    .card-action > a {
+        font-size: 3vw;
+    }
+}
+
+.padding-5 {
+    padding: 5vh;
+}
+
+.title-card-custom {
+    font-size: 1.5vw;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 992px) {
+    .title-card-custom {
+        font-size: 2.8vw;
+    }
+}
+
+@media only screen and (max-width: 625px) {
+    .title-card-custom {
+        font-size: 3.6vw;
+    }
+}
+
+.card-category-sd-body {
+    background-color: $red-c !important;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    margin-top: 2vh;
+    padding: 2vh;
+    width: 100%;
+}
+
+.card-category-sd-body:hover {
+    background-color: $grey-c !important;
+    transition: background 0.6s;
+    -webkit-transition: background 0.6s;
+    -moz-transition: background 0.6s;
+}
+
+.card-category-smp-body {
+    background-color: $blue-c !important;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    padding: 2vh;
+    width: 100%;
+}
+
+.card-category-smp-body:hover {
+    background-color: $grey-c !important;
+    transition: background 0.6s;
+    -webkit-transition: background 0.6s;
+    -moz-transition: background 0.6s;
+}
+
+.card-category-informal-body {
+    background-color: #0E7886 !important;
+    border-radius: 10px;
+    margin-bottom: 1vh;
+    padding: 2vh;
+    width: 100%;
+}
+
+.card-category-informal-body:hover {
+    background-color: $grey-c !important;
+    transition: background 0.6s;
+    -webkit-transition: background 0.6s;
+    -moz-transition: background 0.6s;
+}
+
+.card-custom-margin {
+    margin-bottom: 1vh;
+}
+
+.btn {
+    border-radius: 8px;
+}
+
+.card-nonumum-body {
+    background-color: $body-bg !important;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.card-nonumum-body:hover {
+    background-color: $grey-light-c !important;
+    transition: background 0.6s;
+    -webkit-transition: background 0.6s;
+    -moz-transition: background 0.6s;
+}
+
+.card-nonumum-body:hover .padding-5 {
+    padding: 3.3vh;
+    transition: padding 0.6s;
+    -webkit-transition: padding 0.6s;
+    -moz-transition: padding 0.6s;
+}
+
+.card-sd-footer {
+    background-color:  $red-dark-c !important;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    width: 100%;
+}
+
+.card-smp-footer {
+    background-color:  $blue-dark-c !important;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    width: 100%;
+}
+
+.card-informal-footer {
+    background-color:  $green-dark-c !important;
+    border-bottom-left-radius: 20px !important;
+    border-bottom-right-radius: 20px !important;
+    width: 100%;
+}
+
+.title-card-category {
+    font-weight: 900;
+    font-size: 1.2vw;
+}
+
+.subtitle-card-category {
+    font-size: 0.9vw;
+}
+
+.footer {
+    text-align: center;
+    padding: 1vh;
+    color: $blue-c;
+}
+
+.fixed-size-card {
+    height: 12vh;
+}
+
+.desc-card  {
+    width:100%;
+    height:0;
+    position: absolute;
+}
+
+.desc-card-umum  {
+    background-color: $blue-dark-c;
+}
+
+.desc-card-sd  {
+    background-color: $red-dark-c;
+}
+
+.desc-card-smp  {
+    background-color: $blue-dark-c;
+}
+
+.desc-card-informal  {
+    background-color: $green-dark-c;
+}
+
+.desc-text-card {
+    font-size: 1.5vw;
+    font-weight: 400;
+    padding: 3vh;
+    visibility: hidden;
+    opacity: 0;
+}
+
+@media only screen and (max-width: 625px) {
+    .desc-text-card {
+        font-size: 2.5vw;
+        font-weight: 400;
+        padding: 3vh;
+        visibility: hidden;
+        opacity: 0;
+    }
+}
