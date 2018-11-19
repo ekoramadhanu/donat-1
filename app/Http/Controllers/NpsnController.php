@@ -6,6 +6,7 @@ use Validator;
 use Illuminate\Http\Request;
 use App\Npsn;
 use Illuminate\Support\Facades\Storage;
+use App\Captcha;
 
 class NpsnController extends Controller
 {
@@ -24,20 +25,23 @@ class NpsnController extends Controller
 
     public function action(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'regNum' => 'required|numeric',
+            'pin' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', 'Mohon masukkan data dengan benar');
+        }
+
+        $captcha = new Captcha();
+        if ($captcha->check($request->input('g-recaptcha-response'))->success != 1) {
+            return redirect()->back()->with('error', 'Terdeteksi sebagai robot');
+        }
+
         $serviceName = 'Penerbitan NPSN';
         $service = 1;
         $serviceUrl = 'npsn/update';
-
-        // cek captcha
-        $url = 'https://www.google.com/recaptcha/api/siteverify';
-        $secret = '6LceHHsUAAAAAIf6UCMxNcO4h_zlrpodxylExkBk';
-        $remoteip = $_SERVER['REMOTE_ADDR'];
-        $response = file_get_contents($url.'?secret='.$secret.'&response='.$request->input('g-recaptcha-response').'&remoteip='.$remoteip);
-        $data = json_decode($response);
-
-        if ($data->success != 1) {
-            return redirect()->back()->with('error', 'Terdeteksi sebagai robot');
-        }
 
         // check data
         $regNum = $request->input('regNum');
@@ -68,6 +72,33 @@ class NpsnController extends Controller
 
     public function actionUpdate(Request $request)
     {
+
+        $validator = Validator::make($request->all(), [
+            'regNum' => 'required|numeric',
+            'pin' => 'required',
+            'nama_kepsek' =>'required|max:100',
+            'nama_sekolah' => 'required|max:100',
+            'alamat' => 'required|max:200',
+            'jenjang_sekolah' => 'required|max:10',
+            'status_sekolah' => 'required|numeric',
+            'provinsi' => 'required|max:100',
+            'kota' => 'required|max:100',
+            'kecamatan' => 'required|max:100',
+            'kelurahan' => 'required|max:100',
+            'email' => 'required|email',
+            'no_sk_pendirian' => 'required|max:20',
+            'tanggal_sk_pendirian' => 'required|date',
+            'no_sk_operasional' => 'required|max:20',
+            'tanggal_sk_operasional' => 'required|date'
+        ]);
+
+        if ($validator->fails()) {
+            return view('layanan_error')->with([
+                'title' => 'Ups!!',
+                'msg' => 'Terdapat kesalahan input data, silahkan ulangi dari awal'
+            ]);
+        }
+
         $serviceName = 'Penerbitan NPSN';
         $service = 1;
         $serviceUrl = 'npsn/upload';

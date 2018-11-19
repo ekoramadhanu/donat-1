@@ -18,9 +18,9 @@ class KemajuanController extends Controller
     public function action(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'regNum' => 'required|numeric|max:11',
-            'pin' => 'required|max:200',
-            'service' => 'required|max:3'
+            'regNum' => 'required|numeric',
+            'pin' => 'required',
+            'services' => 'required|numeric|max:3'
         ]);
 
         if ($validator->fails()) {
@@ -46,19 +46,22 @@ class KemajuanController extends Controller
             // Jika data sukses dimasukkan di return ke view('registrasi_sukses')
             $serviceName = '';
             switch ($service) {
-            case 1 :
-                $serviceName = 'Penerbitan NPSN';
-                $npsn = new Npsn();
-                $data = $npsn->select($regNum, $pin);
-                if ($data == null) {
-                    return redirect()->back()->with('error', 'Data tidak ditemukan');
-                }
-            case 2 :
-                $serviceName = 'Rekomendasi Penelitian';
-                $penelitian = new Penelitian();
-                $data = $npsn->select($regNum, $pin);
-                if ($data == null) {
-                    return redirect()->back()->with('error', 'Data tidak ditemukan');
+                case 1 :
+                    $serviceName = 'Penerbitan NPSN';
+                    $npsn = new Npsn();
+                    $data = $npsn->select($regNum, $pin);
+                    if ($data == null) {
+                        return redirect()->back()->with('error', 'Data tidak ditemukan');
+                    }
+                    break;
+                case 2 :
+                    $serviceName = 'Rekomendasi Penelitian';
+                    $penelitian = new Penelitian();
+                    $data = $penelitian->select($regNum, $pin);
+                    if ($data == null) {
+                        return redirect()->back()->with('error', 'Data tidak ditemukan');
+                    }
+                    break;
             }
 
             return view('lihat_kemajuan')->with([
@@ -66,7 +69,6 @@ class KemajuanController extends Controller
                 'data' => $data
             ]);
         }
-    }
 
         // if data invalid
         return redirect()->back()->with('error', 'Mohon masukkan data dengan benar');

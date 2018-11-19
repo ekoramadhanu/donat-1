@@ -20,12 +20,12 @@
         </div>
     </div>
     <div class="row">
-        @switch($service)
-            @case(1)
-                <form class="col s12" action="{{ URL::to("/$serviceUrl") }}" method="POST" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <input type="hidden" value="{{ $regNum }}" name="regNum">
-                    <input type="hidden" value="{{ $pin }}" name="pin">
+        <form class="col s12" action="{{ URL::to("/$serviceUrl") }}" method="POST" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <input type="hidden" value="{{ $regNum }}" name="regNum">
+            <input type="hidden" value="{{ $pin }}" name="pin">
+            @switch($service)
+                @case(1)
                     <div class="row">
                         <div class="file-field input-field">
                             <div class="btn">
@@ -114,17 +114,39 @@
                             </div>
                         </div>
                     </div>
+                    @break
+                @case(2)
                     <div class="row">
-                        <div class="input-field col s12">
-                            <button type="submit" class="waves-effect waves-dark btn-large blue button-umum right white-text">Submit</button>
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>Surat rekomendasi dari bankesbangpol (pdf)</span>
+                                    <input type="file" name="surat_rekomendasi">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </form>
-                @break
-            @case(2)
-                @break
-            @default
-        @endswitch
+                        <div class="row">
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>Surat pengantar dari lembaga/perguruan tinggi/instansi asal (pdf)</span>
+                                    <input type="file" name="surat_pengantar">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </div>
+                    @break
+                @default
+            @endswitch
+            <div class="row">
+                <div class="input-field col s12">
+                    <button type="submit" class="waves-effect waves-dark btn-large blue button-umum right white-text">Submit</button>
+                </div>
+            </div>
+        </form>
     </div>
   </div>
 @endsection

@@ -124,7 +124,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <label for="no_sk_pendirian">No.SK/izin pendirian sekolah</label>
-                        <input value="{{ $data->no_sk_pendirian }}" type="number" class="form-control" id="no_sk_pendirian" placeholder="Masukkan no.SK/izin pendirian sekolah" name="no_sk_pendirian" required>
+                        <input value="{{ $data->no_sk_pendirian }}" type="text" class="form-control" id="no_sk_pendirian" placeholder="Masukkan no.SK/izin pendirian sekolah" name="no_sk_pendirian" required>
                     </div>
                 </div>
                 <div class="row">
@@ -136,7 +136,7 @@
                 <div class="row">
                     <div class="input-field col s12">
                         <label for="no_sk_operasional">No.SK/izin operasional sekolah</label>
-                        <input value="{{ $data->no_sk_operasional }}" type="number" class="form-control" id="no_sk_operasional" placeholder="Masukkan no.SK/izin operasional sekolah" name="no_sk_operasional" required>
+                        <input value="{{ $data->no_sk_operasional }}" type="text" class="form-control" id="no_sk_operasional" placeholder="Masukkan no.SK/izin operasional sekolah" name="no_sk_operasional" required>
                     </div>
                 </div>
                 <div class="row">
@@ -147,6 +147,54 @@
                 </div>
                 @break
             @case(2)
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="nama">Nama peneliti</label>
+                        <input value="{{ $data->nama }}" type="text" class="form-control" id="nama" placeholder="Masukkan nama peneliti" name="nama" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="nama_lembaga">Asal lembaga/perguruan tinggi/instansi</label>
+                        <input value="{{ $data->nama_lembaga }}" type="text" class="form-control" id="nama_lembaga" placeholder="Masukkan asal lembaga/perguruan tinggi/instansi" name="nama_lembaga" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="no_surat">Nomor surat rekomendasi dr bankesbangpol</label>
+                        <input value="{{ $data->no_surat }}" type="text" class="form-control" id="no_surat" placeholder="Masukkan nomor surat rekomendasi dr bankesbangpol" name="no_surat" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="perihal_surat">Perihal surat</label>
+                        <input value="{{ $data->perihal_surat }}" type="text" class="form-control" id="perihal_surat" placeholder="Masukkan perihal surat" name="perihal_surat" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="tanggal_surat">Tanggal Surat</label>
+                        <input class="form-control datepicker" value="{{ $data->tanggal_surat }}" type="text" class="form-control" id="tanggal_surat" placeholder="Masukkan tanggal Surat" name="tanggal_surat" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="waktu_penelitian">Waktu penelitian</label>
+                        <input class="form-control datepicker" value="{{ $data->waktu_penelitian }}" type="text" class="form-control" id="waktu_penelitian" placeholder="Masukkan waktu penelitian" name="waktu_penelitian" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="judul_penelitian">Judul penelitian</label>
+                        <input value="{{ $data->judul_penelitian }}" type="text" class="form-control" id="judul_penelitian" placeholder="Masukkan judul penelitian" name="judul_penelitian" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <label for="tujuan">Tujuan penelitian</label>
+                        <input value="{{ $data->tujuan }}" type="text" class="form-control" id="tujuan" placeholder="Masukkan tujuan penelitian" name="tujuan" required>
+                    </div>
+                </div>
                 @break
             @default
         @endswitch

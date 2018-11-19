@@ -167,6 +167,32 @@
                 </div>
                 @break
             @case("2")
+                <div class="row">
+                    <div class="col s12">
+                        <table class="striped">
+                            <tbody>
+                                <tr>
+                                    <td>Surat rekomendasi dari bankesbangpol</td>
+                                    <td>:</td>
+                                    @if ($data->surat_rekomendasi != null)
+                                        <td><a href="{{ $data->surat_rekomendasi }}" target="_blank"><b>Lihat data</b></a></td>
+                                    @else
+                                        <td class="red-text"><b>Belum submit</b></td>
+                                    @endif
+                                </tr>
+                                <tr>
+                                    <td>Surat pengantar dari lembaga/perguruan tinggi/instansi asal</td>
+                                    <td>:</td>
+                                    @if ($data->surat_pengantar != null)
+                                        <td><a href="{{ $data->surat_pengantar }}" target="_blank"><b>Lihat data</b></a></td>
+                                    @else
+                                        <td class="red-text"><b>Belum submit</b></td>
+                                    @endif
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 @break
             @default
                 
